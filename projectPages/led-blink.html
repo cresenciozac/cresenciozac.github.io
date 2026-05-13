@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Astable Multivibrator (LED Blinker) - Zac Cresencio's Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">    
+    <style>
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Color Vars */
+        :root {
+            --bg: #1d1a1e;
+            --ink: #faf6ff;
+            --muted: #d3baf2;
+            --muted2: #7b747d;
+            --accent: #ceacf8;
+            --rule: #2f2e34;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+
+        }
+
+        /* Nav Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 4rem 4rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        nav .logo {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+        }
+
+        nav ul {
+            list-style:none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav ul a {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+
+        }
+
+        nav .logo:hover { color: var(--ink); }
+        nav ul a:hover { color: var(--ink); }
+
+        /* Hero */
+        .hero {
+            background-image: url('../assets/images/led-blink-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+            gap: 12rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 6rem 4rem;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .hero-content {
+            flex: 1;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.1s forwards;
+        }
+
+        .hero-portrait {
+            flex-shrink: 0;
+            width: 350px;
+            height: 350px;
+        }
+
+        .hero-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20%;
+        }
+
+        .hero .eyebrow {
+            color: var(--muted);
+        }
+        
+        .hero h1 {
+            font-family: "Stack Sans Headline", sans-serif;
+            font-size: 4rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            line-height: 2;
+        }
+
+        /* About Grid */
+        .about-grid .row-1 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 4rem;
+        }
+
+        .row-1 .text {
+            text-align: left;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .about-grid .row-2 {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 4rem;
+        }
+
+        .row-2 .text {
+            text-align: left;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .about-grid .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .about-grid .image img {
+            width: 100%;
+            max-width: 350px;
+            object-fit: cover;
+            border-radius: 10%;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.55s forwards;
+        }
+
+        .about-grid .image2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 2rem;
+        }
+
+        .about-grid .image2 img {
+            width: 100%;
+            max-width: 500px;
+            object-fit: cover;
+            border-radius: 5%;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.55s forwards;
+        }
+        .about-grid .image3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 2rem;
+            gap: 1rem;
+        }
+
+        .about-grid .image3 img {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .text-row {
+            padding: 4rem;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 2;
+        }
+
+        pre {
+            background: #2a2830;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 1.2rem;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: var(--ink);
+            line-height: 1.8;
+        }
+
+
+        /* Footer */
+        footer {
+            padding: 1.5rem 4rem;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            justify-content: flex-end;
+            align-items: right;
+        }
+ 
+    footer .socials {
+      display: flex;
+      gap: 1.5rem;
+    }
+ 
+    footer .socials a {
+      font-family:'Courier New', Courier, monospace;
+      font-size: .8rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <nav>
+        <a class="logo" href="../index.html">Zac Cresencio</a>
+        <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../resume.html">Resume</a></li>
+            <li><a href="../contact.html">Contact</a></li> 
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <main class="hero">
+        <div class="hero-content">
+            <h1>Astable Multivibrator, AKA... A LED Blinker.<br></h1>
+            <p>April 7, 2026<br>
+        </div>
+    </main>
+
+    <!-- Project Information -->
+    <section class="about-grid">
+        <div class="row-1">
+            <div class="text">
+                <h2 style="font-family: 'Stack Sans Headline', sans-serif">Background</h2>
+                Back in March, I got super hyperfixated on the idea of making PCBs for some 
+                reason, and I was like: "Hey, you know what, I'm going to <i>finally</i> make my first one." 
+                So I got to work, and quickly realized that I had zero idea of what I was doing. 
+                I decided to make this small little "Astable Multivibrator" as they call it, 
+                but it is truly just a PCB that blinks two LEDs. It's like a "Hello World" of 
+                the electronic world, and I figured that I might as well complete that rite of passage first.
+                <br><br>
+                Below I'm going to quickly highlight the technical details and schematic, and then 
+                talk about my design process behind this lil' guy, and end it with some concluding thoughts.
+            </div>
+            <div class="image"><img src="../assets/images/led-blink-main-2.jpg" alt="2 LED Blinkers, Close Up"/></div>
+        </div>
+    
+
+    <div class="text-row">
+            <h2>Technical Details</h2>
+                To preface this, I had a very minimal knowledge of how to create my own PCB before this project. 
+                All I knew is that I had access to Altium through UMNSVP, and that I had to use my resources somehow. 
+                I looked up how to create a LED blinker on the internet and found a <a href="https://www.digikey.com/en/maker/tutorials/2022/design-and-build-a-simple-analog-led-flasher-circuit" target="_blank" style="color: var(--accent)">small schematic tutorial</a> 
+                by DigiKey. Something that I find interesting about this circuit is that it's completely analog, 
+                doesn't use any microcontrollers or code to blink the LEDs, only using the properties of RC 
+                circuits and charged/discharged capacitors. The design consists of 2x475 Ω resistors, 2x47.5k Ω resistors, 2 LEDs,
+                2x10μF capacitors, and 2xNPN transistors. The PCB is powered through a 2-pin phoenix connector. The 
+                circuit works by the two transistors taking turns switching each other off, oscillating the 
+                LEDs back and forth. The larger the capacitance of C2 and C3, the slower the blink, as the timing 
+                is based upon the charging of these two capacitors. Also, a 100nF decoupling capacitor was 
+                placed next to the Phoenix connector to filter the noise from the power, keeping the oscillations clean. 
+                <div class="image3"><img src="../assets/images/led-blink-schematic.jpg" alt="LED Blinker Schematic"/></div>
+            </div>
+        </div>
+
+    <div class="text-row">
+            <h2>Design Process</h2>
+                First, I created the circuit in Altium, as I mentioned earlier. I will say, 
+                although Altium was the standard for UMNSVP, KiCad is just so.. much.. better. 
+                Anyway, after creating the schematic, I layed out the PCB on Altium as well. I 
+                tried my best to keep everything as symmetrical as possible, and I put some 
+                fun silkscreen on the PCB as well. (Top right corner, my girlfriend and I's favorite
+                lil' guy, Eggnog, :D)
+                <div class="image"><img src="../assets/images/led-blink-pcb1.jpg" alt="LED Blinker, PCB"/></div>
+                Here's the same PCB in 3D.
+                <div class="image"><img src="../assets/images/led-blink-pcb2.jpg" alt="LED Blinker, PCB"/></div>
+                <div class="image"><img src="../assets/images/led-blink-pcb3.jpg" alt="LED Blinker, PCB"/></div>
+                After creating the PCB, I sent the files to <a href="https://oshpark.com" target="_blank" style="color: var(--accent)">OSH Park</a>, 
+                a really nice PCB manufacturer based in the US (No tariffs!), and ordered my parts off 
+                Digikey. The PCB arrived a couple days later and here's a photo of the unsoldered PCB. In my 
+                opinion, the purple looks pretty sweet on it.
+                <div class="image"><img src="../assets/images/led-blink-empty-pcb.jpg" alt="LED Blinker, Blank PCB"/></div>
+                This was my first time soldering small electronics. I had experience soldering large Maxeon 
+                solar cells for UMNSVP, but I never had soldered components onto a PCB before, so it was a learning experience. 
+                I actually had to solder two of these, because my first one had a cold solder connection, causing a bug in the 
+                analog oscillations. The second time around, my solder connections were solid, and the oscillations worked just fine.
+                <div class="image"><img src="../assets/images/led-blink-pcb5.jpg" alt="LED Blinker, Soldered PCB!"/></div>
+                <div class="image"><img src="../assets/images/led-blink-gif.gif" alt="LED Blinker, Soldered PCB!"/></div>
+            </div>
+        </div>
+
+        <div class="row-1">
+            <div class="text">
+                <h2 style="font-family: 'Stack Sans Headline', sans-serif">What I Learned</h2>
+                It was a fun little project. Mostly, I learned about soldering electrical components, 
+                component selection and shopping, creating PCBs on Altium, and how electrical components 
+                interact with each other. I also learned that PCBs are <i>preetttyy</i> expensive nowadays, 
+                so we just hope they go down in price soon.
+            </div>
+            <div class="image"><img src="../assets/images/led-blink-closer.jpg" alt="2 LED Blinkers, Close Up"/></div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="socials">
+            <a href="https://linkedin.com/in/zac-cresencio" target="_blank">LinkedIn</a>
+            <a href="mailto:cresenciozac@gmail.com">Email</a>
+        </div>
+    </footer>
+
+
+</body>
+
+
+
+
+
+</html>

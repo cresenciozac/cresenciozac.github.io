@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Automatic Micro Solar Tracker - Zac Cresencio's Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">    
+    <style>
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Color Vars */
+        :root {
+            --bg: #1d1a1e;
+            --ink: #faf6ff;
+            --muted: #d3baf2;
+            --muted2: #7b747d;
+            --accent: #ceacf8;
+            --rule: #2f2e34;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+
+        }
+
+        /* Nav Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 4rem 4rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        nav .logo {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+        }
+
+        nav ul {
+            list-style:none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav ul a {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--muted);
+
+        }
+
+        nav .logo:hover { color: var(--ink); }
+        nav ul a:hover { color: var(--ink); }
+
+        /* Hero */
+        .hero {
+            background-image: url('../assets/images/solar-tracker-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+            gap: 12rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 6rem 4rem;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .hero-content {
+            flex: 1;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.1s forwards;
+        }
+
+        .hero-portrait {
+            flex-shrink: 0;
+            width: 350px;
+            height: 350px;
+        }
+
+        .hero-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20%;
+        }
+
+        .hero .eyebrow {
+            color: var(--muted);
+        }
+        
+        .hero h1 {
+            font-family: "Stack Sans Headline", sans-serif;
+            font-size: 4rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            line-height: 2;
+        }
+
+        /* About Grid */
+        .about-grid .row-1 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 4rem;
+        }
+
+        .row-1 .text {
+            text-align: left;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .about-grid .row-2 {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 4rem;
+        }
+
+        .row-2 .text {
+            text-align: left;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .about-grid .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .about-grid .image img {
+            width: 100%;
+            max-width: 350px;
+            object-fit: cover;
+            border-radius: 10%;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.55s forwards;
+        }
+
+        .about-grid .image2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 2rem;
+        }
+
+        .about-grid .image2 img {
+            width: 100%;
+            max-width: 500px;
+            object-fit: cover;
+            border-radius: 5%;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.55s forwards;
+        }
+        .about-grid .image3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 2rem;
+            gap: 1rem;
+        }
+
+        .about-grid .image3 img {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .text-row {
+            padding: 4rem;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 2;
+        }
+
+        pre {
+            background: #2a2830;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 1.2rem;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: var(--ink);
+            line-height: 1.8;
+        }
+
+
+        /* Footer */
+        footer {
+            padding: 1.5rem 4rem;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            justify-content: flex-end;
+            align-items: right;
+        }
+ 
+    footer .socials {
+      display: flex;
+      gap: 1.5rem;
+    }
+ 
+    footer .socials a {
+      font-family:'Courier New', Courier, monospace;
+      font-size: .8rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <nav>
+        <a class="logo" href="../index.html">Zac Cresencio</a>
+        <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../resume.html">Resume</a></li>
+            <li><a href="../contact.html">Contact</a></li> 
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <main class="hero">
+        <div class="hero-content">
+            <h1>Automatic Micro Solar Tracker<br></h1>
+            <p>April 28, 2026<br>
+            <a href="https://github.com/cresenciozac/Automatic-Solar-Tracker" target="_blank" style="color: var(--accent)">Github Page</a></p>
+        </div>
+    </main>
+
+    <!-- About Grid -->
+    <section class="about-grid">
+        <div class="row-1">
+            <div class="text">
+                <h2 style="font-family: 'Stack Sans Headline', sans-serif">Background</h2>
+                This was my first "big" project when it came to Electrical Engineering, and it was 
+                specifically built for my EE1301 Introduction to Computing Systems final project. I've 
+                always had an interest in renewable energy, and I thought that a cool simple project 
+                that I create was a small solar panel that tracked a light! I went into it 
+                thinking it was going to be smooth sailing, but of course, with every engineering 
+                project, it was NOT as smooth as I thought. Below, I'll describe the 
+                technical details of the project, then outline my design process, wrapping up 
+                with some lessons I learned throughout the way.
+            </div>
+            <div class="image"><img src="../assets/images/solar-tracker-main.jpg" alt="Solar Tracker Image"/></div>
+        </div>
+        <div class="text-row">
+            <h2 style="font-family: 'Stack Sans Headline', sans-serif">Technical Details</h2>
+            <p>To start with the boring details (or interesting),
+                this project uses the Particle Photon 2 as a microcontroller, 
+                running C++ code and also allowing IoT communication. The panel 
+                itself is a Buachois 0.3W 5V 60mA solar panel I found on Amazon, 
+                and it does the job. It's soldered onto a perfboard with some other
+                components. The panel is mounted on a SG90s micro servo, powered by a 6V Battery Pack,
+                that rotates using logic from two PDV-P8103 light-dependent resistors, separated by
+                a divider (a card, because I forgot to 3D print one) to increase the contrast. 
+                Essentially, the LDR analog output values are compared to determine 
+                the source of the brightest light, and the servo rotates towards it; 
+                nothing too crazy. A hystersis of 50 was used to reduce jittering of 
+                the servo, because the analogRead() values would fluctuate a lot.
+                <br>
+                <pre><code>if (autoTracking == true)
+  {
+    // LDR Loop
+    if (now_ms - prev_ms_LDR >= interval_LDR)
+    {
+      prev_ms_LDR = now_ms;
+      
+      // Calculate the difference in light
+      ldrLVal = analogRead(LDR_L_PIN);
+      ldrRVal = analogRead(LDR_R_PIN);
+      ldrDelta = ldrLVal - ldrRVal;
+
+      // Send signal to move accordingly
+      if (ldrDelta > HYSTERSIS)
+      {
+        lightDetected = LEFT;   // move servo left
+        servoPos -= 0.5;
+        servoPos = constrain(servoPos, 1, 179);
+        servo.write(servoPos);
+        // Serial.println("LEFT");
+      }
+      else if (ldrDelta < -(HYSTERSIS))
+      {
+        lightDetected = RIGHT;  // move servo right
+        servoPos += 0.5;
+        servoPos = constrain(servoPos, 1, 179);
+        servo.write(servoPos);
+        // Serial.println("RIGHT");
+      }
+      else
+      {
+        lightDetected = CENTERED;
+        servoPos += 0;
+        servoPos = constrain(servoPos, 1, 179);
+        servo.write(servoPos);
+        // Serial.println("CENTERED");
+      }
+    }</code></pre>
+                <br>
+                The power output is measured through a voltage divider, using
+                2x10K Ω resistors to calculate the voltage, and estimate the 
+                power output and current through the load. To calculate the values, 
+                I just used Ohm's Law (V = IR) and Power = V^2 / R. First, the 
+                voltage is read through the voltage divider, using analogRead(), 
+                and converted into the actual voltage, then multiplied by two 
+                to undo the voltage divider and calculate the real voltage output. 
+                The current and power were divided by the resistance, and then multiplied
+                 by 1000 to convert to mA and mW, being more appropriate for this tiny 
+                 solar panel. After submitting the final project, I realized that my 
+                 calculations were incorrect for the power and current, as they should be 
+                 divided by 20,000 Ω, not 2,000 Ω, which is unfortunate.
+                <br>
+                    <pre><code>voltage = analogRead(VDIV_PIN) * (3.3 / 4095) * 2;
+current = (voltage / 2000) * 1000;
+power_mW = ( (voltage * voltage) / 2000) * 1000;</code></pre>
+                <br>
+                To allow for manual control, I implemented a potentiometer that 
+                controls the angle of the servo relative to the output from the 
+                potentiometer. A button was also used to toggle between AUTO and MANUAL 
+                input. Lastly, with the help of some resources from the internet and 
+                Claude, I created a small dashboard that displayed the power output, 
+                communicated via the cloud using the Particle Photon 2.
+                I also created a wiring schematic in KiCad, seen below. All of these files,
+                 including the .cpp and .html file, can be found on my 
+                 <a href="https://github.com/cresenciozac/Automatic-Solar-Tracker" target="_blank" style="color: var(--accent)">Github page!</a></p>
+                <br>
+                <div class="image2"><img src="../assets/images/solar-tracker-website-image.jpg" alt="Image of Solar Tracker, next to a laptop with dashboard on it."/></div>
+                <div class="image3"><img src="../assets/images/solar_tracker_schematic.jpg" alt="A wiring schematic of the solar tracker."/></div>
+                <br>
+            </p>
+        </div>
+        <div class="text-row">
+            <h2 style="font-family:'Stack Sans Headline', sans-serif">Design Process</h2>
+            Right after my professor explained the assignment to us, I 
+            excitedly got to work on sketching some ideas up— a little 
+            embarrasing, but gotta admire the drive that Zac from March had to make a tiny 
+            little project. My first sketches were pretty rough, as I tried
+            to figure out the placement of parts and what parts I actually 
+            needed for this thing to work. The original design had pretty 
+            similar parts, but was intending to use a DFRobot SEN0291 INA219 
+            power monitor (more details later on why that DIDN'T work.) I also 
+            completely overestimated the size of this project, as I wanted to use 
+            two micro solar cells, which just wasn't realistic. Another large debate 
+            I had was the positioning of the panel, and how it would be placed on 
+            the servo motor.
+            <div class="image3"><img src="../assets/images/solar-tracker-sketches-1.jpg" alt="Sketches of ideas"/></div><br>
+            I was also trying to figure out the dimensions of the baseplate that 
+            would house the servo, as this solar panel needed some way to stand. 
+            I figured that the best way would be to design a small cylindrical 
+            base in OnShape, and 3D print it using the UMN's 3D printers. The 
+            servo would be mounted on this baseplate, and I hoped for the best 
+            when it came to servo fitting correctly. This was my first time 
+            using OnShape, and as a first time user, I gotta say it's quite 
+            nice and easy to learn, so props to you OnShape! (These files can also be found on the Github Page
+            <a href="https://github.com/cresenciozac/Automatic-Solar-Tracker" target="_blank" style="color: var(--accent)">here.</a>)</p>
+            <div class="image2"><img src="../assets/images/solar-tracker-sketches-2.jpg" alt="More sketches of ideas, of the baseplate"/>
+                                <img src="../assets/images/solar-tracker-cad-1.jpg" alt="Solar Tracker Baseplate in OnShape"/>
+            </div><br>
+            The last 3D print I needed was a frame to hold the perfboard 
+            and solar cell, and after making a couple of sketches, the 
+            finalized design was the CAD render, again made on OnShape, 
+            on the right side. This was the second variation due to some 
+            errors with my first print, which I'll describe some more 
+            below. I left an open back on the frame so I could easily 
+            connect wires onto leads on the back of the perfboard, and 
+            also decrease the weight of the frame slightly. 
+            I think the hardest part of this process was figuring 
+            out a method to mount the frame onto the servo motor, but 
+            I opted for a small screwhole on the center that would 
+            screw into the servo, instead of attaching it onto a servo 
+            horn as I intended when sketching.
+            <div class="image2"><img src="../assets/images/solar-tracker-sketches-3.jpg" alt="Solar Tracker Sketches, Sketches of Frame"/>
+                                <img src="../assets/images/solar-tracker-cad-2.jpg" alt="Solar Tracker Frame in OnShape"/>
+            </div><br>
+            My first prints did work well enough with the servo motor, as 
+            you can see below, which is a small clip of the servo 
+            being tested with no panel attached to it yet. This design was 
+            alright, but it quickly fell apart when it came time to 
+            wiring the components together, and trying to keep the 
+            perfboard strapped onto the frame. Those reasons are why 
+            I decided to make some tweaks to the CAD model and 
+            reprint them to fix some issues of mounting. 
+            Regardless, enjoy this fun gif. 
+            <div class="image2"><img src="../assets/images/solar-tracker-gif.gif" alt="Solar Tracker Gif, 180 degree rotation"/>
+            </div><br>
+        </div>
+
+        <div class="row-2">
+            <div class="image"><img src="../assets/images/solar-tracker-shitty-solder.jpg" alt="Solar Tracker, Shitty Ass Soldering."/></div>
+            <div class="text">
+                Time for the real fun stuff... Electronics! Yeah, this part 
+                was not a lot of fun because of all the issues I ran into 
+                while trying to wire this thing up. Unfortunately, I also
+                didn't take too many photos of the wiring process, so 
+                I apologize for that.  
+                <br><br>
+                    My first order of business was figuring out the 
+                    layout of the perfboard and solar cell. Prior to 
+                    this project, I've had soldering experience with 
+                    both electronics and real and larger solar cells 
+                    (Shoutout UMNSVP Array), but man, getting this 
+                    thing to work was hell. My first attempt at 
+                    soldering the perfboard and the components onto 
+                    it was a failure, due to either cold solder joints, 
+                    or some other random reason I don't know about. 
+                    You can see this mess to the left, which was slightly 
+                    disassembled at the time of this photo to try and 
+                    recover some components.  
+
+            </div>
+        </div>
+
+        <div class="row-2">
+            <div class="image"><img src="../assets/images/solar-tracker-not-shitty-solder.jpg" alt="Solar Tracker Image, Not so Shitty Soldering"/></div>
+            <div class="text">
+                So, I started fresh and soldered my second solar cell onto my second perfboard,
+                 and this one actually worked. Phew.
+                <br><br>
+                This time, it was much better. Much cleaner connections here, and I decided to 
+                rely on solder bridges instead of all wires in order to connect components 
+                together. The red wires carried 3V3 voltage used in the LDR logic, which was 
+                connected to the Photon 2's 3V3 rail. The blue wires held common GND 
+                for the LDRs and the solar cell, connected to the GND rail of my 
+                breadboard. The leads for the DATA lines for the 
+                LDRs actually broke off in this photo, but those were connected 
+                directly to the Photon 2. Lastly, the solar cell's 3V3 lead was 
+                connected to the voltage divider in order to read the power output!
+                You may also notice the new 3D printed frame, with screw holes using 
+                M2 screws to mount the perfboard onto the frame. Nice.
+            </div>
+        </div>
+
+        <div class="text-row">
+            Here's a short little clip of me testing the rotation 
+            of the servo reacting to the flashlight of my phone camera! 
+            I was still tweaking the settings for rotation speed and 
+            sensitivity at this point, but I was pretty proud of this prototype.<br>
+            <div class="image"><img src="../assets/images/solar-tracker-flash.gif" alt="Solar Tracker Gif, following my flashlight"/>
+            </div>
+        </div>
+
+        <div class="text-row">
+            Now listen, I know it isn't pretty, but the breadboard wiring got the job done. 
+            If I had more time, I would definitely rework this wiring hell and clean it 
+            up a bit, but this is all I had by the time it was due, unfortunately. 
+            Regardless, if you can somehow follow the logic here, here are 
+            some of the important connections. The 6V battery pack connects 
+            to the servo power pin, and the servo is also connected to GND and it's 
+            data pin on the Photon 2. The orange wire is connected to the solar cell's
+            positive lead, and connected to the voltage divider. The bottom left 
+            breadboard expansion contains the controls for the manual rotation, with a 
+            LED that turns on when in manual mode. The other wires connect to the 
+            LDRs, 3V3, GND, etc.
+            <br><br>
+            I ended up scrapping the DFRobot SEN0291 INA219 due to some issues with the I2C connection. 
+            For some reason, and I still don't know why, the SEN0291 just wasn't being read 
+            through the I2C connection, and none of the data was being sent. It was strange 
+            because it worked for my first couple tests, then when I resoldered the 
+            perfboard, it completely stopped working, which was the most frustrating part 
+            of this project. Never the less, I ended up opting for a voltage divider to 
+            get a rough estimate of the power output instead of ordering another SEN0291. 
+            <div class="image2"><img src="../assets/images/solar-tracker-wiring-hell.jpg" alt="Solar Tracker WIRING HELL"/>
+            </div><br>
+        </div>
+    
+    <div class="row-1">
+            <div class="text">
+                <h2 style="font-family:'Stack Sans Headline', sans-serif">What I Learned</h2>
+                This is what the project finally ended up looking like. With the 
+                DIY divider in the middle and rats nest of a breadboard layout, 
+                it looks a little ragtag, but that's okay.
+                <br><br>
+                The biggest skills I learned from this project was how to 
+                prototype a design and iterate, fixing errors along the way and 
+                finding solutions to my problems. This little project was actually 
+                really hard to make, not because of the complexity, but just because 
+                of all of the minor errors I kept making and obstacles that popped up. 
+                Other than that, I learned how to use OnShape, create good solder 
+                connections, write C++ code for the Particle Photon 2, and more. 
+                <br><br>
+                To end this with a funny story: I was trying to showcase this project 
+                to my parents after coming home from the EE1301 showcase, but as soon as 
+                my mom tried to watch my demonstration, it completely stopped working because God 
+                knows why. Lesson learned, don't let your parents in on your projects, I guess.
+            </div>
+            <div class="image"><img src="../assets/images/solar-tracker-final-design.jpg" alt="Solar Tracker Image, Final Design"/></div>
+        </div>
+
+            
+            
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="socials">
+            <a href="https://linkedin.com/in/zac-cresencio" target="_blank">LinkedIn</a>
+            <a href="mailto:cresenciozac@gmail.com">Email</a>
+        </div>
+    </footer>
+
+
+</body>
+
+
+
+
+
+</html>
